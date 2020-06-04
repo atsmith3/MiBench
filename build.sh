@@ -57,15 +57,25 @@ GEM5=1
 export GEM5_ROOT=$PWD
 
 pushd automotive/basicmath 
+  TN="basicmath"
   print_info "$PWD: building basicmath"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying basicmath_large to testbin"
   cp basicmath_large $TB/basicmath
 popd
 
 pushd automotive/bitcount 
+  TN="bitcnts"
   print_info "$PWD: building bitcnts"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying bitcnts to testbin"
   cp bitcnts $TB
 popd
@@ -74,6 +84,10 @@ pushd automotive/qsort
   TN="qsort"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp qsort_large $TB/qsort
   cp input_large.dat $IP/qsort.dat
@@ -83,6 +97,10 @@ pushd automotive/susan
   TN="susan"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp susan $TB/susan
   cp input_large.pgm $IP/susan.pgm
@@ -92,6 +110,10 @@ pushd network/dijkstra
   TN="dijkstra"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp dijkstra $TB/dijkstra
   cp dijkstra.dat $IP/dijkstra.dat
@@ -101,6 +123,10 @@ pushd network/patricia
   TN="patricia"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp patricia $TB/patricia
   cp patricia.udp $IP/patricia.udp
@@ -110,6 +136,10 @@ pushd security/blowfish
   TN="blowfish"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp bf $TB/blowfish
   cp blowfish_large.enc $IP/blowfish.enc
@@ -120,6 +150,10 @@ pushd security/rijndael
   TN="rijndael"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp rijndael $TB/rijndael
   cp rijndael_large.enc $IP/rijndael.enc
@@ -131,6 +165,10 @@ pushd security/sha
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
   print_info "Copying $TN to testbin"
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   cp sha $TB/sha
   cp sha_large.asc $IP/sha.asc
 popd
@@ -139,6 +177,10 @@ pushd telecomm/CRC32
   TN="CRC32"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp crc $TB/crc
   cp crc_large.pcm $IP/crc.pcm
@@ -148,6 +190,10 @@ pushd telecomm/FFT
   TN="FFT"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp fft $TB/fft
 popd
@@ -156,6 +202,10 @@ pushd telecomm/gsm
   TN="gsm"
   print_info "$PWD: building $TN"
   make clean && make GEM5=$GEM5
+  if [ -nz $? ]; then
+    print_error "Build $TN failed"
+    exit 1
+  fi
   print_info "Copying $TN to testbin"
   cp bin/toast $TB/toast
   cp bin/untoast $TB/untoast
