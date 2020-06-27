@@ -112,7 +112,7 @@ $(BLIB): $(LIBOBJ)
 	else exit 0; fi; fi
 
 bf: bf.o $(BLIB) $(GEM5_OBJ)
-	$(CC) $(CFLAGS) -o bf bf.o $(BLIB) $(GEM5_OBJ)
+	$(CC) --static $(CFLAGS) -o bf bf.o $(BLIB) $(GEM5_OBJ)
 
 bftest: bftest.o $(BLIB) $(GEM5_OBJ)
 	$(CC) $(CFLAGS) -o bftest bftest.o $(BLIB) $(GEM5_OBJ)
